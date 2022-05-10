@@ -1,9 +1,10 @@
+package src;
 import java.util.Scanner;
-public class lista {
-    public int[] elementos;
-
+public class test {
     public static void main(String[] args) {
         lista inteiros = new lista();
+        int[] inteiro = {1,2,3,5,10,6,8};
+        inteiros.elementos = inteiro;
         Scanner entrada = new Scanner(System.in);
         int count = 0;
         while(true){
@@ -16,29 +17,12 @@ public class lista {
 
             count++;
         }
+        inteiros.sorted();
             
         }
         for (int i = 0; i < inteiros.elementos.length; i++) {
             System.out.println(inteiros.elementos[i]);
         }
 
-    }
-
-    private void append(int adicionar){
-        
-        if (this.elementos == null){
-            int[] novoArray = new int[1];
-            novoArray[0] = adicionar;
-            this.elementos = novoArray;
-
-        }else{
-            int[] novoArray = new int[this.elementos.length + 1];
-            for (int i = 0; i < this.elementos.length; i++) {
-                novoArray[i] = this.elementos[i];
-            } 
-            novoArray[novoArray.length - 1] = adicionar;
-            this.elementos = novoArray;
-        }
-        
     }
 }
