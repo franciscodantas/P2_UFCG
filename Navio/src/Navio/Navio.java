@@ -44,10 +44,10 @@ public class Navio {
     }
 
     public void aprimorarVida(int novaVida){
-        if (this.gold - 1 * novaVida > 0) {
+        if (this.gold - 0.5 * (novaVida - this.vidaprimaria) > 0 && novaVida > this.vidaprimaria) {
             this.vida = novaVida;
             this.vidaprimaria = novaVida;
-            this.gold -= 1 * novaVida;
+            this.gold -= 0.5 * (novaVida - this.vidaprimaria);
         }
         
     }
