@@ -25,7 +25,6 @@ public class Navio {
 
     public void setVida(int novaVida){
         this.vida = novaVida;
-        this.vidaprimaria = this.vida;
     }
 
     public void setDano(int novoDano){
@@ -34,5 +33,13 @@ public class Navio {
 
     public void curar(){
         this.vida = this.vidaprimaria;
+        System.out.println();
+        System.out.println("Vida curada para " + this.vida);
+        System.out.println();
+    }
+
+    public void aprimorarVida(int novaVida){
+        this.vida = novaVida;
+        this.vidaprimaria = novaVida;
     }
 }
