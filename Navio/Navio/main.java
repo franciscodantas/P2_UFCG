@@ -12,6 +12,7 @@ public class main {
         System.out.println("Dano do seu navio:");
         int danoMeuNavio = Integer.parseInt(entrada.nextLine());
         Navio n1 = new Navio(vidaMeuNavio, danoMeuNavio);
+        System.out.println();
 
         System.out.println("Agora do seu adversario!");
         System.out.println("Vida do navio:");
@@ -19,6 +20,7 @@ public class main {
         System.out.println("Dano do navio:");
         int danooutroNavio = Integer.parseInt(entrada.nextLine());
         Navio n2 = new Navio(vidaoutroNavio, danooutroNavio);
+        System.out.println();
 
         for (int i = 0; i >= 0; i++) {
 
@@ -48,6 +50,7 @@ public class main {
                 System.out.println("Curar (c)");
                 System.out.println("Aprimorar vida (apv)");
                 comando = entrada.nextLine();
+
                 if (comando.equals("apd")) {
                     System.out.println();
                     System.out.println("Digite o novo dano:");
@@ -71,6 +74,7 @@ public class main {
             System.out.println("Você foi atacado!");
             n2.atacar(n1);
             System.out.println("Sua vida atual " + n1.getVida());
+            System.out.println("Vida do adversario " + n2.getVida());
             System.out.println();
         }
         
