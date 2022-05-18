@@ -4,11 +4,13 @@ public class Navio {
     private int vida;
     private int dano;
     private int vidaprimaria;
+    private int gold;
 
-    public Navio(int vidaInical, int danoInicial){
+    public Navio(int vidaInical, int danoInicial, int goldinicial){
         this.vida = vidaInical;
         this.dano = danoInicial;
         this.vidaprimaria = vidaInical;
+        this.gold = goldinicial;
     }
 
     public void atacar(Navio n2 ) {
@@ -32,14 +34,25 @@ public class Navio {
     }
 
     public void curar(){
-        this.vida = this.vidaprimaria;
-        System.out.println();
-        System.out.println("Vida curada para " + this.vida);
-        System.out.println();
+        if (this.gold - 10 > 0) {
+            this.vida += (int) ((this.vidaprimaria - this.getVida() ) * 0.3);
+            System.out.println();
+            System.out.println("Vida curada para " + this.vida);
+            System.out.println();
+            this.gold -= 10;
+        }
     }
 
     public void aprimorarVida(int novaVida){
-        this.vida = novaVida;
-        this.vidaprimaria = novaVida;
+        if (this.gold - 1 * novaVida > 0) {
+            this.vida = novaVida;
+            this.vidaprimaria = novaVida;
+            this.gold -= 1 * novaVida;
+        }
+        
+    }
+
+    public int getVidaInicial(){
+        return vidaprimaria;
     }
 }

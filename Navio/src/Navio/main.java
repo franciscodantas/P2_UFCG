@@ -11,7 +11,7 @@ public class main {
         int vidaMeuNavio = Integer.parseInt(entrada.nextLine());
         System.out.println("Dano do seu navio:");
         int danoMeuNavio = Integer.parseInt(entrada.nextLine());
-        Navio n1 = new Navio(vidaMeuNavio, danoMeuNavio);
+        Navio n1 = new Navio(vidaMeuNavio, danoMeuNavio,100);
         System.out.println();
 
         System.out.println("Agora do seu adversario!");
@@ -19,18 +19,12 @@ public class main {
         int vidaoutroNavio = Integer.parseInt(entrada.nextLine());
         System.out.println("Dano do navio:");
         int danooutroNavio = Integer.parseInt(entrada.nextLine());
-        Navio n2 = new Navio(vidaoutroNavio, danooutroNavio);
+        Navio n2 = new Navio(vidaoutroNavio, danooutroNavio,100);
         System.out.println();
 
         for (int i = 0; i >= 0; i++) {
 
-            if (n1.getVida() <= 0) {
-                System.out.println("Você perdeu");
-                break;
-            }else if (n2.getVida() <= 0) {
-                System.out.println("Você ganho!!!!");
-                break;
-            }
+            
             System.out.println();
             System.out.println("#########" + " Comandos " + "#########");
             System.out.println("         " + " Atacar (a) " + "         ");
@@ -70,14 +64,34 @@ public class main {
                 System.out.println(n1.getVida());
             }
 
+            if (n1.getVida() <= 0) {
+                System.out.println("Você perdeu");
+                break;
+            }else if (n2.getVida() <= 0) {
+                System.out.println("Você ganho!!!!");
+                break;
+            }
+
             System.out.println();
-            System.out.println("Você foi atacado!");
-            n2.atacar(n1);
+            inimigo(n2, n1);
             System.out.println("Sua vida atual " + n1.getVida());
             System.out.println("Vida do adversario " + n2.getVida());
             System.out.println();
+
+            
         }
+
+        
         
        
+    }
+
+    public static void inimigo(Navio n2, Navio n1){
+        if (n2.getVida() <= (n2.getVida() * 0.3) || n2.getVida() <= n1.getDano()) {
+            n2.curar();
+        }else{
+            n2.atacar(n1);
+            System.out.println("Você foi atacado!");
+        }
     }
 }
